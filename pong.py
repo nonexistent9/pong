@@ -5,18 +5,16 @@ def move_up():
             newy = right_stick.ycor() + 10
             right_stick.goto(right_stick.xcor(),newy)
 
-
 def move_down():
     if right_stick.ycor() > -250:
         newy = right_stick.ycor() - 10
         right_stick.goto(right_stick.xcor(),newy)
-        print(right_stick.ycor())
 
 screen = Screen()
 screen.bgcolor("Black")
 screen.title("Pong")
 screen.setup(width=800,height=600)
-
+screen.tracer(0)
 
 right_stick = Turtle()
 right_stick.color("White")
@@ -29,11 +27,9 @@ screen.listen()
 screen.onkey(move_up,"Up")
 screen.onkey(move_down,"Down")
 
-
-
-
-
-
+game_is_on = True
+while game_is_on:
+     screen.update()
 
 
 
