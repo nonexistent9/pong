@@ -1,16 +1,16 @@
-
-
 from turtle import *
 
 def move_up():
-        newy = right_stick.ycor() + 10
-        right_stick.goto(right_stick.xcor(),newy)
-        print(right_stick.ycor())
+        if right_stick.ycor()<250:
+            newy = right_stick.ycor() + 10
+            right_stick.goto(right_stick.xcor(),newy)
 
 
 def move_down():
-    newy = right_stick.ycor() - 10
-    right_stick.goto(right_stick.xcor(),newy)
+    if right_stick.ycor() > -250:
+        newy = right_stick.ycor() - 10
+        right_stick.goto(right_stick.xcor(),newy)
+        print(right_stick.ycor())
 
 screen = Screen()
 screen.bgcolor("Black")
