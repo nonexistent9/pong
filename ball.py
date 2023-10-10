@@ -15,7 +15,10 @@ class Ball(Turtle):
             newy = self.ycor() + self.dy
             self.goto(newx,newy)
            
-    def collision(self):
+    def collision_with_walls(self):
             self.dy*=-1
 
+    def collision_with_paddles(self):
+          self.dx*=-1
 
+    

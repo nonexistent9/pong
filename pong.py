@@ -29,7 +29,11 @@ while game_is_on:
      ball.move()
 
      if ball.ycor()>300 or ball.ycor()<-300:
-          ball.collision()
+          ball.collision_with_walls()
 
+     if ball.distance(r_paddle) < 40 and ball.xcor() > 340:
+          ball.collision_with_paddles()
+     if ball.distance(l_paddle) < 40 and ball.xcor() < -340:
+          ball.collision_with_paddles()
 
 screen.exitonclick()
