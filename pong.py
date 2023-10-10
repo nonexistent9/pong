@@ -2,14 +2,15 @@ from turtle import *
 from paddle import Paddle
 from ball import Ball
 import time
+from score import Scoreboard
 
+score = Scoreboard()
 screen = Screen()
 screen.bgcolor("Black")
 screen.title("Pong")
 screen.setup(width=800,height=600)
 screen.tracer(0)
          
-
 r_paddle = Paddle((350,0))
 l_paddle = Paddle((-350,0))
      
@@ -31,9 +32,19 @@ while game_is_on:
      if ball.ycor()>300 or ball.ycor()<-300:
           ball.collision_with_walls()
 
-     if ball.distance(r_paddle) < 40 and ball.xcor() > 340:
+     if ball.distance(r_paddle) < 40 and ball.xcor() > 320:
           ball.collision_with_paddles()
-     if ball.distance(l_paddle) < 40 and ball.xcor() < -340:
+     if ball.distance(l_paddle) < 40 and ball.xcor() < -320:
           ball.collision_with_paddles()
+
+     if ball.xcor() == 400:
+          ball.score()
+          score.left_score()
+          
+     elif ball.xcor() == -400:
+          ball.score()
+          score.right_score()
+
+
 
 screen.exitonclick()
