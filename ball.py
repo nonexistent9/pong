@@ -19,8 +19,8 @@ class Ball(Turtle):
             self.dy*=-1
 
     def collision_with_paddles(self):
-          self.dx*=-1
+          self.dx*=-1.1
 
     def score(self):
           self.goto(0,0)
-          self.dx*=-1
+          self.dx*=-1.1

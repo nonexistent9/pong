@@ -37,11 +37,11 @@ while game_is_on:
      if ball.distance(l_paddle) < 40 and ball.xcor() < -320:
           ball.collision_with_paddles()
 
-     if ball.xcor() == 400:
+     if ball.xcor() > 400:
           ball.score()
           score.left_score()
           
-     elif ball.xcor() == -400:
+     elif ball.xcor() < -400:
           ball.score()
           score.right_score()
 
